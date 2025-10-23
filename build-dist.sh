@@ -10,7 +10,7 @@ PKGS="
 	junegunn/vim-easy-align
 	marcs-feh/vim-compile
 	marcs-feh/vim-odin
-	junegunn/vim-easy-align
+	marcs-feh/vim-udark
 "
 set -eu
 

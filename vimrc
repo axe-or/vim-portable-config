@@ -48,6 +48,7 @@ set sidescrolloff=12
 set background=dark
 
 syntax on
+colors udark
 
 " Netrw Options
 let g:netrw_keepdir = 0
@@ -95,6 +96,12 @@ call s:map('n', '<leader>c', ':Commentary<CR>')
 call s:map('v', '<leader>c', ':Commentary<CR>')
 
 
+" augroup ThemeOverrides
+" 	autocmd!
+" 	autocmd BufEnter
+" 		\ hi! Normal guibg='NONE'
+" augroup END
+
 augroup NetrwKeys
   autocmd!
   autocmd FileType netrw
@@ -129,5 +136,7 @@ xnoremap <silent> <C-k> :move '<-2<cr>gv-gv
 xnoremap <silent> <C-j> :move '>+1<cr>gv-gv
 
 let &statusline=' %m%f %= %y | %l:%c | %{&fileencoding} %{&fileformat} '
+
+hi! Normal guibg='NONE'
 
 
