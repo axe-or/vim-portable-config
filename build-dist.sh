@@ -11,7 +11,6 @@ PKGS="
 	marcs-feh/vim-compile
 	marcs-feh/vim-odin
 	marcs-feh/vim-udark
-	plan9-for-vimspace/acme-colors
 	nvim-treesitter/nvim-treesitter
 "
 set -eu

@@ -114,7 +114,6 @@ map_key('n', '<C-b>', ':Compile<CR>')
 map_key('n', '<C-c><C-b>', ':CompileSetCommands<CR>')
 map_key('n', '<C-c><C-t>', ':CompileTest<CR>')
 
-
 require('nvim-treesitter.configs').setup {
 	sync_install = true, -- Enable if you have <8GB RAM, will take much longer to compile
 	ensure_installed = {},
@@ -130,4 +129,6 @@ require('nvim-treesitter.configs').setup {
 		enable = true,
 	},
 }
+
+vim.cmd [[ colorscheme udark ]]
 
