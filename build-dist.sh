@@ -11,6 +11,8 @@ PKGS="
 	marcs-feh/vim-compile
 	marcs-feh/vim-odin
 	marcs-feh/vim-udark
+	plan9-for-vimspace/acme-colors
+	nvim-treesitter/nvim-treesitter
 "
 set -eu
 
@@ -20,11 +22,15 @@ FetchPlugins(){
 
 	for pkg in $PKGS; do
 		pkg="$(echo $pkg | sed -E 's/\s*//g')"
+		gitflags=''
+
+		[ "$pkg" = "nvim-treesitter/nvim-treesitter" ] && gitflags="--branch main"
+
 		[ -z "$pkg" ] || {
 			pkgDir="$(basename "$pkg")"
 			[ -d "$pkgDir" ] || {
 				echo "    Downloading $pkg ..."
-				git clone --quiet --depth=1 "https://github.com/$pkg"
+				git clone $gitflags --depth=1 "https://github.com/$pkg"
 			}
 			cd "$pkgDir"
 			git pull --quiet
@@ -97,7 +103,7 @@ tar czf vim-config.tgz .vimrc .vim
 
 echo 'Generating Neovim tarball'
 mv .vim nvim
-mv .vimrc nvim/init.vim
+cp init.lua nvim/init.lua
 tar czf nvim-config.tgz nvim
 
 echo 'Generating base64 encoded versions'
